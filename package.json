@@ -1,0 +1,16 @@
+{
+  "name": "shopify-admin-token",
+  "version": "1.0.0",
+  "description": "Zero-dependency local service and boilerplate to get a Shopify Admin API access token through OAuth.",
+  "type": "module",
+  "main": "src/shopify-oauth.mjs",
+  "scripts": {
+    "start": "node src/server.mjs"
+  },
+  "engines": {
+    "node": ">=20.12"
+  },
+  "keywords": ["shopify", "oauth", "admin-api", "access-token", "boilerplate"],
+  "author": "Alexandre Klostermann",
+  "license": "MIT"
+}
