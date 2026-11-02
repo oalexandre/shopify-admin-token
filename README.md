@@ -47,6 +47,16 @@ There are no dependencies: you need Node.js 20.12 or newer, and nothing else.
   create the app.
 - Without `read_all_orders`, the API only returns orders from the **last 60 days**. If you need
   the full history, request that access separately.
+- **Creating customers and discounts:** `write_customers` creates and edits customers, and
+  `write_discounts` creates discount codes and automatic discounts through GraphQL
+  (`discountCodeBasicCreate`, `discountAutomaticBasicCreate`, ...). Add `read_products` only if
+  discounts target specific products or collections. `write_price_rules` is only for the legacy
+  REST Price Rules API.
+- Customer name, email, phone and address are *protected customer data*: besides the scope,
+  declare that access in the Dev Dashboard, or writing those fields fails. Apps installed only on
+  your own store need no review.
+- After changing scopes, **Release** a new version and generate the token again. An existing token
+  keeps the scopes it was issued with.
 
 ## 2. Run the service
 

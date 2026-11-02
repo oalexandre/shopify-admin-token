@@ -47,6 +47,16 @@ Não há dependências: basta ter Node.js 20.12 ou mais recente.
   `read_discounts_allocator_functions`. Remova-os para criar o app.
 - Sem `read_all_orders`, a API só devolve pedidos dos **últimos 60 dias**. Se você precisar do
   histórico completo, peça esse acesso à parte.
+- **Criar clientes e descontos:** `write_customers` cria e edita clientes, e `write_discounts`
+  cria cupons e descontos automáticos via GraphQL (`discountCodeBasicCreate`,
+  `discountAutomaticBasicCreate`, ...). Adicione `read_products` só se os descontos forem
+  restritos a produtos ou coleções. `write_price_rules` serve apenas para a API REST legada de
+  Price Rules.
+- Nome, e-mail, telefone e endereço do cliente são *dados protegidos de clientes*: além do escopo,
+  declare esse acesso no Dev Dashboard, senão a gravação desses campos falha. Apps instalados só
+  na sua loja não passam por revisão.
+- Depois de mudar os escopos, faça um novo **Release** e gere o token de novo. Um token existente
+  mantém os escopos com que foi emitido.
 
 ## 2. Rodar o serviço
 
